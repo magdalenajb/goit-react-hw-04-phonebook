@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import c from './ContactList.module.css';
 
-export const ContactList = ({ state, onRemoveContact }) => {
+export const ContactList = ({ contacts, filter, onRemoveContact }) => {
   return (
     <ul className={c.contactList}>
-      {state.contacts
-        .filter(e => e.name.toLowerCase().includes(state.filter.toLowerCase()))
+      {contacts
+        .filter(e => e.name.toLowerCase().includes(filter.toLowerCase()))
         .map(({ id, name, number }) => (
           <li className={c.contactListItem} key={id}>
             <p>{name}</p>
